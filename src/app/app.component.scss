@@ -1,0 +1,16 @@
+.component__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.side-bar {
+  position: absolute;
+  z-index: 2;
+}
+
+.outlet {
+  margin-left: 230px;
+  width: 100%;
+  margin-right: 0;
+}

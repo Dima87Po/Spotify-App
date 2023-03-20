@@ -1,0 +1,80 @@
+.spotify__header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 74px;
+  background: #161616;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: lightgray;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.spotify__top-nav_auth {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.spotify__top-nav_auth_sign-up {
+  padding: 20px;
+}
+
+.spotify__top-nav_auth_login {
+  background-color: white;
+  padding: 17px;
+  border-radius: 40px;
+  color: black;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    color: green;
+    background-color: rgb(32, 32, 32);
+  }
+}
+
+.playlist-container {
+  position: relative;
+  height: 100%;
+}
+
+.new-releases {
+  background-color: #101010;
+
+  &__title {
+    margin-top: 74px;
+    padding-top: 20px;
+    margin-left: 5%;
+  }
+
+  &__new-releases-section {
+    display: flex;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+  }
+}
+
+hr {
+  color: white;
+  border-width: 3px;
+  margin-left: 60px;
+  width: 90%;
+}
+
+.fa-chevron-up {
+  margin: 30px;
+  width: 100px;
+}
+
+a {
+  margin: 0px 10px;
+}

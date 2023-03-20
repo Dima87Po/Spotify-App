@@ -1,0 +1,41 @@
+<header class="search__header">
+    <section class="search-section">
+        <div id="searchId" class="search-section__nav-bar">
+            <div class="back-btn" routerLink="/">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="search-section__input-container">
+                <input class="search-section__input" type="text" id="inputSearch" placeholder="Search artist or track"
+                    (keyup)="search(searchTerm.value)" (keydown.backspace)="search(searchTerm.value)" #searchTerm>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="search-section__search-item-container">
+    <div class="search-section__tracks-container"
+        [ngClass]="moreTracks ? 'show' : 'search-section__tracks-container--hide'" *ngIf="tracksList.length > 0">
+        <div class="search-section__title-container">
+            <h2 class="search-section__title">{{ "Tracks" }}</h2>
+        </div>
+        <button class="btn-template search-section__btn" (click)="seeMoreTracks()">{{ "Show more" }}</button>
+        <div class="search-section__search-item">
+            <app-search-track-item [track]="track" *ngFor="let track of tracksList"></app-search-track-item>
+        </div>
+    </div>
+    <div class="search-section__artists-container"
+        [ngClass]="moreArtists ? 'show' : 'search-section__artists-container--hide'" *ngIf="artistsList.length > 0">
+        <div class="search-section__title-container">
+            <h2 class="search-section__title">{{ "Artists" }}</h2>
+        </div>
+        <button class="btn-template search-section__btn" (click)="seeMoreArtists()">{{ "Show more" }}</button>
+        <div class="search-section__search-item">
+            <app-search-artist-item [artist]="artist" *ngFor="let artist of artistsList"></app-search-artist-item>
+        </div>
+    </div>
+    <div class="search-section__float-btn-container" *ngIf="moreArtists || moreTracks">
+        <a class="float-btn" (click)="scrollTo('searchId')">
+            <span class="fas fa-chevron-up float-btn-icon"></span>
+        </a>
+    </div>
+</div>

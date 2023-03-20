@@ -1,0 +1,71 @@
+.spotify__header {
+  height: 74px;
+  background: #161616;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &-username {
+    margin-right: 20px;
+    font-size: 15px;
+  }
+}
+
+.back-btn {
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.library__label {
+  font-size: 25px;
+  margin: 10px;
+}
+
+.library-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.library__blocks {
+  display: flex;
+}
+
+.library__like-block {
+  padding: 10px;
+  margin: 10px;
+  width: 440px;
+  height: 260px;
+  background: linear-gradient(90deg, #3f2b96 0%, #a8c0ff 100%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.library__playlist {
+  max-width: 90%;
+  margin: 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+  background-color: #181818;
+  width: 200px;
+  height: 270px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &__img {
+    width: 180px;
+    height: 180px;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+p {
+  font-size: 20px;
+}

@@ -1,0 +1,34 @@
+<section id="artistId" class="artist-section animated fadeIn" *ngIf="artist != null">
+    <div class="artist-section__header-container">
+        <div class="back-btn" routerLink="/">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="artist-section__header-img-container">
+            <img class="artist-section__header-img" [src]="artist.images | errorImage" [alt]="artist.name">
+        </div>
+        <div class="artist-section__name-container">
+            <h2 class="artist-section__name">{{ artist.name }}</h2>
+        </div>
+        <div class="artist-section__followers-container">
+            <span>{{ artist.followers.total }} {{ "Artist followers" }}</span>
+        </div>
+        <div class="artist-section__profile-btn-container">
+            <a class="btn-template" [href]="artist.external_urls.spotify" target="_blank">{{ "Artist profile" }}</a>
+        </div>
+    </div>
+    <div class="artist-section__main-container">
+        <div class="artist-section__albums-container"
+            [ngClass]="moreAlbums ? 'show' : 'artist-section__albums-container--hide'">
+            <h2 class="artist-section__albums-title">{{ "Album title" }}</h2>
+            <button class="btn-template" (click)="seeMoreAlbums()">{{ "Artist more" }}</button>
+            <div class="artist-section__albums-list-container" *ngIf="albums.length > 0">
+                <app-artist-albums [album]="album" *ngFor="let album of albums"></app-artist-albums>
+            </div>
+        </div>
+        <div class="artist-section__float-btn-container" *ngIf="moreAlbums || moreTracks">
+            <a class="float-btn" (click)="scrollTo('artistId')">
+                <span class="fas fa-chevron-up float-btn-icon"></span>
+            </a>
+        </div>
+    </div>
+</section>

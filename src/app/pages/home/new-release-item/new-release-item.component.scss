@@ -1,0 +1,79 @@
+.new-release-item {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #181818;
+  width: 235px;
+  height: 300px;
+  cursor: pointer;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+    font-size: 15px;
+  }
+
+  &__bottom-container {
+    bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &__artist {
+    margin-right: 5px;
+    color: #b3b3b3;
+    font-size: 11px;
+  }
+
+  &__type-container {
+    border-radius: 20px;
+    background-color: #181818;
+  }
+
+  &__type {
+    color: white;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 11px;
+  }
+
+  .button {
+    position: relative;
+  }
+
+  .button .fa-solid {
+    position: absolute;
+    right: 10px;
+    top: -40px;
+    padding: 15px;
+    background-color: #1db954;
+    border-radius: 100%;
+    opacity: 0;
+    transition: all ease 0.4s;
+    box-shadow: 0 6px 4px -2px rgb(26, 25, 25);
+  }
+  .new-release-item__container:hover .button .fa-solid {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+.new-release-item:hover {
+  background-color: #323131;
+}
+
+
+// background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
