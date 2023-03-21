@@ -1,4 +1,4 @@
-<div class="search-artist-item animated fadeIn" *ngIf="artist" (click)="navigate(artist)">  
+<div class="search-artist-item animated fadeIn" *ngIf="artist" (click)="navigate(artist)">
     <div class="search-artist-item__img-container">
         <img class="search-artist-item__img" [src]="artist.images | errorImage" [alt]="artist.name">
     </div>
@@ -12,5 +12,5 @@
         <div class="search-artist-item__type-container">
             <span class="search-artist-item__type">{{ artist.type | uppercase }}</span>
         </div>
-    </div>    
+    </div>
 </div>

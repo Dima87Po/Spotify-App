@@ -20,19 +20,14 @@ export interface Albums {
   total: number;
 }
 
-export interface NewReleasesItem {
+export interface NewReleasesItem extends FormattedNewReleases {
   album_type: 'album' | 'single';
-  artists: Artist[];
   available_markets: string[];
   external_urls: ExternalUrls;
   href: string;
-  id: string;
-  images: Image[];
-  name: string;
   release_date: Date;
   release_date_precision: ReleaseDatePrecision;
   total_tracks: number;
-  type: 'album' | 'single';
   uri: string;
 }
 

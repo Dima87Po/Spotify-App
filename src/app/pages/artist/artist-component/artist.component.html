@@ -13,13 +13,13 @@
             <span>{{ artist.followers.total }} {{ "Artist followers" }}</span>
         </div>
         <div class="artist-section__profile-btn-container">
-            <a class="btn-template" [href]="artist.external_urls.spotify" target="_blank">{{ "Artist profile" }}</a>
+            <a class="btn-template" [href]="artist.external_urls.spotify" target="_blank">Artist profile</a>
         </div>
     </div>
     <div class="artist-section__main-container">
         <div class="artist-section__albums-container"
             [ngClass]="moreAlbums ? 'show' : 'artist-section__albums-container--hide'">
-            <h2 class="artist-section__albums-title">{{ "Album title" }}</h2>
+            <h2 class="artist-section__albums-title">Album title</h2>
             <button class="btn-template" (click)="seeMoreAlbums()">{{ "Artist more" }}</button>
             <div class="artist-section__albums-list-container" *ngIf="albums.length > 0">
                 <app-artist-albums [album]="album" *ngFor="let album of albums"></app-artist-albums>

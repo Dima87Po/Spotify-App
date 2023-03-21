@@ -1,27 +1,3 @@
-// SCSS Variables
-$layout_bp_mobile: 360px;
-$layout_bp_tablet: 800px;
-$layout_bp_desktop: 1000px;
-
-$dark-gray: #181818;
-$med-gray: #282828;
-$light-gray: #b3b3b3;
-$black: black;
-
-// SCSS Mixins
-@mixin tablet {
-  @media only screen and (min-width: $layout_bp_tablet) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media only screen and (min-width: $layout_bp_desktop) {
-    @content;
-  }
-}
-
-// SCSS Styles
 .album-item {
     margin-top: 25px;
     margin-right: 20px;
@@ -39,7 +15,6 @@ $black: black;
         font-size: 14px;
         line-height: 20px;
         letter-spacing: .015em;
-        font-weight: var(--glue-font-weight-bold);
         color: #fff;
         text-transform: none;   
         text-decoration: none;

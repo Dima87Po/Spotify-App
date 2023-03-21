@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { SearchService } from '../search.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
+import { SearchService } from "../search.service";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
   @Input() public showModal: boolean = false;
@@ -14,51 +14,39 @@ export class SearchComponent implements OnInit {
   public tracksList: any[] = [];
   public moreArtists: boolean = false;
   public moreTracks: boolean = false;
-  public activeLanguage: string = 'en';
+  public activeLanguage: string = "en";
 
   constructor(private searchService: SearchService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  // search both artist and track
   public search(term: string): void {
-    console.log('Term to find:', term);
-
-    // update url with term
-    this.router.navigate(['search', term]);
-
-    this.searchService.getTracksAndArtists(term).subscribe(
-      (data: any) => {
+    this.searchService.getTracksAndArtists(term).subscribe({
+      next: (data: any) => {
         this.artistsList = data.artists.items;
         this.tracksList = data.tracks.items;
 
-        console.log('Data:', data);
+        console.log("Data:", data);
 
         if (this.artistsList.length === 0 && this.tracksList.length === 0) {
           this.showModal = true;
         }
       },
-      (err) => {
-        console.log('Error:', err);
+      error: (err) => {
+        console.log("Error:", err);
         console.error(err.message);
       },
-      () => {
-        console.log('Complete!');
-      }
-    );
+    });
   }
 
-  // update variable to see more/less artists
   public seeMoreArtists(): void {
     this.moreArtists = !this.moreArtists;
   }
 
-  // update variable to see more/less tracks
   public seeMoreTracks(): void {
     this.moreTracks = !this.moreTracks;
   }
 
-  // scroll to element
   public scrollTo(elementId: string): void {
     document.getElementById(elementId).scrollIntoView();
   }

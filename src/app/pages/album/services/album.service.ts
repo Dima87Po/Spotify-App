@@ -3,23 +3,21 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { SpotifyService } from 'src/app/services/spotify.service';
 
-import { APIAlbums } from '../models/album-model';
-
-
+import { APIAlbum } from '../models/album-model';
 
 @Injectable({
   providedIn: 'root'
-}) // service provided in Artist module
+})
+
 export class AlbumService {
 
   constructor(private spotifyService: SpotifyService) { }
 
-  // get album info
-  public getAlbum(albumId: string): Observable<APIAlbums> {
+  public getAlbum(albumId: string): Observable<APIAlbum> {
     const albumUrl: string = `albums/${ albumId }`;
 
     return this.spotifyService.getQuery(albumUrl).pipe(
-      map((res: APIAlbums) => {
+      map((res: APIAlbum) => {
         if (!res) {
           throw new Error('Value expected!');
         } else {

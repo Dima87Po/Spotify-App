@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-search-artist-item',
-  templateUrl: './search-artist-item.component.html',
-  styleUrls: ['./search-artist-item.component.scss'],
+  selector: "app-search-artist-item",
+  templateUrl: "./search-artist-item.component.html",
+  styleUrls: ["./search-artist-item.component.scss"],
 })
 export class SearchArtistItemComponent implements OnInit {
   @Input() artist: any;
@@ -13,9 +13,8 @@ export class SearchArtistItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // navigates to artist
   public navigate(artist: any): void {
-    console.log('id', artist.id);
-    this.router.navigate(['/artist', artist.id]);
+    console.log("id", artist.id);
+    this.router.navigate(["/artist", artist.id]);
   }
 }

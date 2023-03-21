@@ -1,26 +1,3 @@
-// SCSS Variables
-$layout_bp_mobile: 360px;
-$layout_bp_tablet: 800px;
-$layout_bp_desktop: 1000px;
-
-$dark-gray: #181818;
-$light-gray: #b3b3b3;
-$black: black;
-
-// SCSS Mixins
-@mixin tablet {
-  @media only screen and (min-width: $layout_bp_tablet) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media only screen and (min-width: $layout_bp_desktop) {
-    @content;
-  }
-}
-
-// SCSS Styles
 .show {
   overflow: visible;
   height: auto;
@@ -60,16 +37,11 @@ $black: black;
     margin: 0 auto;
   }
 
-  &__title {
-    padding-top: 10px;
-  }
-
   &__search-item-container {
-    background-color: $dark-gray;
+    background-color:  #181818;
     color: aliceblue;
     max-width: 98%;
     margin: 0 auto;
-    
   }
 
   &__search-item {
@@ -78,17 +50,16 @@ $black: black;
       padding-bottom: 60px;
       display: flex;
       flex-wrap: wrap;
-    
   } 
 
   &__tracks-container--hide {
     overflow: hidden;
-    height: 350px;
+    height: 390px;
   }
 
   &__artists-container--hide {
     overflow: hidden;
-    height: 350px;
+    height: 390px;
   }
 
   &__btn {

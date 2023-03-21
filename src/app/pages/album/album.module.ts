@@ -6,9 +6,6 @@ import { AlbumComponent } from './album-component/album.component';
 import { AlbumService } from './services/album.service';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
-
-
-
 @NgModule({
   declarations: [
     AlbumComponent

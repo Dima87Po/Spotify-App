@@ -16,9 +16,9 @@
     <div class="search-section__tracks-container"
         [ngClass]="moreTracks ? 'show' : 'search-section__tracks-container--hide'" *ngIf="tracksList.length > 0">
         <div class="search-section__title-container">
-            <h2 class="search-section__title">{{ "Tracks" }}</h2>
+            <h2 class="search-section__title">Tracks</h2>
         </div>
-        <button class="btn-template search-section__btn" (click)="seeMoreTracks()">{{ "Show more" }}</button>
+        <button class="btn-template search-section__btn" (click)="seeMoreTracks()">Show more</button>
         <div class="search-section__search-item">
             <app-search-track-item [track]="track" *ngFor="let track of tracksList"></app-search-track-item>
         </div>
@@ -26,9 +26,9 @@
     <div class="search-section__artists-container"
         [ngClass]="moreArtists ? 'show' : 'search-section__artists-container--hide'" *ngIf="artistsList.length > 0">
         <div class="search-section__title-container">
-            <h2 class="search-section__title">{{ "Artists" }}</h2>
+            <h2 class="search-section__title">Artists</h2>
         </div>
-        <button class="btn-template search-section__btn" (click)="seeMoreArtists()">{{ "Show more" }}</button>
+        <button class="btn-template search-section__btn" (click)="seeMoreArtists()">Show more</button>
         <div class="search-section__search-item">
             <app-search-artist-item [artist]="artist" *ngFor="let artist of artistsList"></app-search-artist-item>
         </div>

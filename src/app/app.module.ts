@@ -21,7 +21,6 @@ import { SideBarComponent } from './pages/side-bar/side-bar.component';
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

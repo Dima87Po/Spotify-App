@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ErrorImagePipe implements PipeTransform {
 
-  // validates images before display them in view
   transform(images: any[]): string {
     if (!images) {
       console.log('!images');

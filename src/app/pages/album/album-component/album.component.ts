@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
-import { AlbumService } from '../services/album.service';
-
-import { APIAlbums } from '../models/album-model';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
+import { AlbumService } from "../services/album.service";
+import { APIAlbum } from "../models/album-model";
+import { switchMap } from "rxjs";
 
 @Component({
-  selector: 'app-album',
-  templateUrl: './album.component.html',
-  styleUrls: ['./album.component.scss'],
+  selector: "app-album",
+  templateUrl: "./album.component.html",
+  styleUrls: ["./album.component.scss"],
 })
 export class AlbumComponent implements OnInit {
-  public albumId: string = '';
-  public album: APIAlbums | null = null;
+  public albumId: string = "";
+  public album: APIAlbum | null = null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,37 +20,12 @@ export class AlbumComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-    this.getActivatedRoute();
-    this.getAlbum();
-  }
+  ngOnInit(){
+    this.activatedRoute.params.pipe(
+      switchMap(res => this.albumService.getAlbum(res["id"]))
+      ).subscribe((album: APIAlbum) => (this.album = album))
+}
 
-  // get album id from active route
-  public getActivatedRoute(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      this.albumId = params['id'];
-      console.log('Activated Route Id', params['id']);
-    });
-  }
-
-  // get album info
-  public getAlbum(): void {
-    this.albumService.getAlbum(this.albumId).subscribe({
-      next: (album: APIAlbums) => {
-        this.album = album;
-        console.log('Album Data:', album);
-      },
-      error: (err) => {
-        console.log('Error:', err);
-        console.error(err.message);
-      },
-      complete: () => {
-        console.log('Complete!');
-      },
-    });
-  }
-
-  // go back to the previous URL
   public goBack(): void {
     this.location.back();
   }

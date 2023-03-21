@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import {
-  FormattedNewReleases,
-  NewReleasesItem,
-} from 'src/app/pages/home/models/new-releases-model';
-import { NewReleasesService } from '../new-releases-service';
+import { Component, OnInit } from "@angular/core";
+import { NewReleasesItem } from "src/app/pages/home/models/new-releases-model";
+import { NewReleasesService } from "../new-releases-service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
   public isSearchFieldVisible: boolean = true;
 
-  title = 'New Releases';
+  title = "New Releases";
   public newReleases: NewReleasesItem[] = [];
 
   constructor(private newReleasesService: NewReleasesService) {}
@@ -27,14 +23,14 @@ export class HomeComponent implements OnInit {
     this.newReleasesService.getNewReleases().subscribe({
       next: (data: NewReleasesItem[]) => {
         this.newReleases = data;
-        console.log('Data:', data);
+        console.log("Data:", data);
       },
       error: (err) => {
-        console.log('Error:', err);
+        console.log("Error:", err);
         console.error(err.message);
       },
       complete: () => {
-        console.log('Complete!');
+        console.log("Complete!");
       },
     });
   }
